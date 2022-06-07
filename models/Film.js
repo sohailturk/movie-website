@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const movieSchema = new mongoose.Schema({
+const filmSchmema = new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -9,7 +9,7 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    realease-date:{
+    realeaseDate:{
         type:Date,
         required:true
     },
@@ -19,7 +19,7 @@ const movieSchema = new mongoose.Schema({
         min: 1,
         max:5
     },
-    ticket-price:{
+    ticketPrice:{
         type:Number,
         required:true
     },
@@ -38,6 +38,6 @@ const movieSchema = new mongoose.Schema({
 })
 
 
-const Movie = new mongoose.model("Movie",movieSchema);
+const Film = new mongoose.model("Film",filmSchmema);
 
-module.exports = Movie
+module.exports = Film
