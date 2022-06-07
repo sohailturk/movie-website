@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const {Schema} = mongoose;
 
-const filmSchmema = new mongoose.Schema({
+const filmSchmema = new Schema({
     name:{
         type:String,
         required:true
@@ -35,7 +36,13 @@ const filmSchmema = new mongoose.Schema({
     photo:{
         type:String,
         required:true
-    }
+    },
+    comments:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:"Film"
+        }
+    ]
 })
 
 
