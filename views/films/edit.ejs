@@ -14,17 +14,17 @@
                     <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                         <div class="card mb-2">
                             <div class="card-body p-sm-2">
-                                <h2 class="text-center mb-4">Add new Film</h2>
-                                <form method="post" action="/films" novalidate class="validform">
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[name]" placeholder="name" required value=""/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[description]" placeholder="description" required/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="date"  name="film[realeaseDate]" placeholder="realease-date" required/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="number" min="1" max="5" name="film[rating]" placeholder="rating" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="number" min="50" step="20" name="film[ticketPrice]" placeholder="ticket-price" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[country]" placeholder="country" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[genere]" placeholder="genere" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[photo]" placeholder="image" required/></div>
-                                    <div><button class="btn btn-primary d-block w-100" type="submit">submit</button></div>
+                                <h2 class="text-center mb-4">Edit Film</h2>
+                                <form method="post" action="/films/<%= film._id%>?_method=PATCH" novalidate class="validform">
+                                    <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[name]" placeholder="name" required value="<%=film.name %>"/></div>
+                                    <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[description]" placeholder="description" required value="<%=film.description %>"/></div>
+                                    <div class="mb-1"><input id="name-2" class="form-control" type="date"  name="film[realeaseDate]" placeholder="realease-date" required value="<%=film.releaseDate %>"/></div>
+                                    <div class="mb-1"><input id="name-2" class="form-control" type="number" min="1" max="5" name="film[rating]" placeholder="rating" required value="<%=film.rating %>"/></div>
+                                    <div class="mb-1"><input id="email-2" class="form-control" type="number" min="50" step="20" name="film[ticketPrice]" placeholder="ticket-price" required value="<%=film.ticketPrice %>"/></div>
+                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[country]" placeholder="country" required value="<%= film.country %>"/></div>
+                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[genere]" placeholder="genere" required value="<%= film.genere %>"/></div>
+                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[photo]" placeholder="image" required value="<%= film.photo %>"/></div>
+                                    <div><button class="btn btn-primary d-block w-100" type="submit">save</button></div>
                                 </form>
                             </div>
                         </div>

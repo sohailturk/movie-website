@@ -16,7 +16,7 @@ exports.addOne = async (req,res)=>{
     await film.save();
     res.redirect("/films")
     } catch (error) {
-        res.status(500).send("internal server error",error)
+        res.status(500).send(error)
     }
     
 }
@@ -41,6 +41,22 @@ exports.getOne = async(req,res)=>{
 }
 
 
-exports.updateForm = (req,res)=>{
-    res.render("films/edit")
+exports.updateForm = async(req,res)=>{
+    const {id} = req.params;
+    const film = await Film.findById(id)
+    res.render("films/edit",{film})
+}
+
+exports.editOne = async(req,res)=>{
+    const {id} = req.params;
+    await Film.findByIdAndUpdate(id,req.body.film)
+    res.redirect(`/films/${id}`)
+}
+
+
+exports.deleteOne = async(req,res)=>{
+    const {id} = req.params;
+    await Film.findByIdAndDelete(id)
+    res.redirect("/films")
+
 }

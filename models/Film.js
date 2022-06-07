@@ -11,6 +11,7 @@ const filmSchmema = new mongoose.Schema({
     },
     realeaseDate:{
         type:Date,
+        default:1994 ,
         required:true
     },
     rating:{

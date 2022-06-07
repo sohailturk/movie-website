@@ -4,6 +4,7 @@ const app = express();
 const mongooseConnect = require("./db/mongooseConnect");
 const filmRouter = require("./routes/filmRouter")
 const expressLayouts = require("express-ejs-layouts");
+const methodOverRide = require("method-override");
 
 
 
@@ -14,6 +15,9 @@ app.set("view engine","ejs")
 app.use(express.static(path.join(__dirname,"public")))
 app.use(express.urlencoded({extended:true}))
 app.use(expressLayouts)
+app.use(methodOverRide("_method"))
+
+
 
 const port = process.env.PORT || 3000;
 

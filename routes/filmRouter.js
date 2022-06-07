@@ -17,10 +17,17 @@ router.get("/films/new",filmController.newForm)
 
 router.get("/films/:id",filmController.getOne)
 
-//updating form for single film
+//edit form for single film
 
 router.get("/films/:id/edit",filmController.updateForm)
 
+//editing single film
+
+router.patch("/films/:id",filmController.editOne)
+
+//deleteing route
+
+router.delete("/films/:id",filmController.deleteOne)
 
 
 
