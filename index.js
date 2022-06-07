@@ -2,6 +2,7 @@ const path = require("path")
 const express = require("express");
 const app = express();
 const mongooseConnect = require("./db/mongooseConnect");
+const filmRouter = require("./routes/filmRouter")
 
 
 
@@ -17,17 +18,9 @@ mongooseConnect.connectDB();
 
 
 
+//router middlewares
+app.use("/",filmRouter)
 
-
-
-
-app.get("/",(req,res)=>{
-    res.send("homepage")
-})
-
-app.get("/films",(req,res)=>{
-    res.send("films")
-})
 
 
 
