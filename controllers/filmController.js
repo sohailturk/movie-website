@@ -3,10 +3,10 @@ exports.getAll = (req,res)=>{
 }
 
 exports.addOne = (req,res)=>{
-    res.render("films/new")
+    res.send(req.body)
 }
 
 
-exports.createForm = (req,res)=>{
-    res.render("/")
+exports.newForm = (req,res)=>{
+    res.render("films/new")
 }

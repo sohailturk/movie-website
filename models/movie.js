@@ -5,19 +5,21 @@ const movieSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    descrription:{
+    description:{
         type:String,
         required:true
     },
-    realeaseDate:{
+    realease-date:{
         type:Date,
         required:true
     },
     rating:{
         type:Number,
-        required:true
+        required:true,
+        min: 1,
+        max:5
     },
-    ticketPrice:{
+    ticket-price:{
         type:Number,
         required:true
     },

@@ -10,7 +10,7 @@ router.get("/films",filmController.getAll)
 
 router.post("/films",filmController.addOne)
 
-router.get("films/new",filmController.createForm)
+router.get("/films/new",filmController.newForm)
 
 
 module.exports = router
