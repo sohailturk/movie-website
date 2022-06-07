@@ -17,29 +17,43 @@
                     <%= film.name.toUpperCase() %>
                 </h5>
                 <p class="card-text">
-                    <span class="fw-bold">description</span>  <%= film.description %>
-                 </p>
-                <p class="card-text">
-                   <span class="fw-bold">Rating</span> <%= film.rating %>
+                    <span class="fw-bold">description</span>
+                    <%= film.description %>
                 </p>
                 <p class="card-text">
-                   <span class="fw-bold">Realease-date</span> <%= film.realeaseDate %>
+                    <span class="fw-bold">Rating</span>
+                    <%= film.rating %>
                 </p>
                 <p class="card-text">
-                  <span class="fw-bold">Genere</span>  <%= film.genere %>
+                    <span class="fw-bold">Realease-date</span>
+                    <%= film.realeaseDate %>
                 </p>
                 <p class="card-text">
-                    <span class="fw-bold">Ticket Price</span>  $ <%=film.ticketPrice %>
-                  </p>
-                  <p class="card-text">
-                    <span class="fw-bold">Country</span>  <%= film.country %>
-                  </p>
+                    <span class="fw-bold">Genere</span>
+                    <%= film.genere %>
+                </p>
+                <p class="card-text">
+                    <span class="fw-bold">Ticket Price</span> $ <%=film.ticketPrice %>
+                </p>
+                <p class="card-text">
+                    <span class="fw-bold">Country</span>
+                    <%= film.country %>
+                </p>
                 <a href="/films/<%=film._id %>/edit" class="btn btn-primary mb-2 px-4">Edit</a>
                 <form action="/films/<%=film._id%>?_method=DELETE" method="post" class="">
                     <button class="btn btn-primary">delete</button>
                 </form>
+                <!-- comment form   -->
+                <form method="post" action="/films/<%=film._id%>/comments" novalidate class="validform w-50 mt-2">
+                    <label for="input">user name</label>
+                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="comment[body]" placeholder="username" required /></div>
+                    <div class="mb-3"><textarea id="message-2" class="form-control" name="comment[body]" rows="6"
+                            placeholder="Add comment" required></textarea></div>
+                    <div><button class="btn btn-primary d-block w-10" type="submit">submit</button></div>
+                </form>
 
             </div>
+
 
         </div>
 
