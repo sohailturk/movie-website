@@ -28,6 +28,9 @@ mongooseConnect.connectDB();
 
 
 //router middlewares
+app.get("/",(req,res)=>{
+    res.redirect("/films")
+})
 app.use("/",filmRouter)
 
 
