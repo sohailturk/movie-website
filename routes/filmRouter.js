@@ -10,7 +10,18 @@ router.get("/films",filmController.getAll)
 
 router.post("/films",filmController.addOne)
 
+//show form for creating single film
 router.get("/films/new",filmController.newForm)
+
+//showing single film
+
+router.get("/films/:id",filmController.getOne)
+
+//updating form for single film
+
+router.get("/films/:id/edit",filmController.updateForm)
+
+
 
 
 module.exports = router

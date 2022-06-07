@@ -27,7 +27,20 @@ exports.newForm = (req,res)=>{
 }
 
 exports.getOne = async(req,res)=>{
-    const {id} = req.params;
-    const film = await Film.findById(id);
-    res.render("films/show",{film})
+    try {
+        const {id} = req.params;
+        const film = await Film.findById(id);
+        if(!film){
+            throw new Error("The selected film not found")
+        }
+        res.render("films/show",{film})
+    } catch (error) {
+        res.status(404).send(error)
+    }
+    
+}
+
+
+exports.updateForm = (req,res)=>{
+    res.render("films/edit")
 }

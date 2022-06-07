@@ -1,1 +1,52 @@
-<h1>single film page</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="card mb-3">
+            <img src="<%=film.photo%>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= film.name.toUpperCase() %>
+                </h5>
+                <p class="card-text">
+                    <span class="fw-bold">description</span>  <%= film.description %>
+                 </p>
+                <p class="card-text">
+                   <span class="fw-bold">Rating</span> <%= film.rating %>
+                </p>
+                <p class="card-text">
+                   <span class="fw-bold">Realease-date</span> <%= film.realeaseDate %>
+                </p>
+                <p class="card-text">
+                  <span class="fw-bold">Genere</span>  <%= film.genere %>
+                </p>
+                <p class="card-text">
+                    <span class="fw-bold">Ticket Price</span>  $ <%=film.ticketPrice %>
+                  </p>
+                  <p class="card-text">
+                    <span class="fw-bold">Country</span>  <%= film.country %>
+                  </p>
+                <a href="/films/<%=film._id %>/edit" class="btn btn-primary mb-2 px-4">Edit</a>
+                <form action="/films/<%=film._id%>?_method=DELETE" method="post" class="">
+                    <button class="btn btn-primary">delete</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
