@@ -2,11 +2,12 @@ const Film = require("../models/Film");
 const Comment = require("../models/Comment")
 const multer = require("multer");
 
+
+// configuring multer
 const storage = multer.diskStorage({
   destination:function (request,file,callback) {
     callback(null,"./public/images")
   },
-  //add extension back
   filename:function (request,file,callback) {
     callback(null,Date.now()+file.originalname)
   }
@@ -30,7 +31,6 @@ exports.getAll = async (req, res) => {
 };
 
 exports.addOne = async (req, res) => {
-  console.log(req.file)
   try {
     const film = new Film({...req.body.film,image:req.file.filename});
     await film.save();
@@ -48,7 +48,6 @@ exports.getOne = async (req, res) => {
     const { id } = req.params;
   try {
     const film = await Film.findOne({_id:id}).populate("comments");
-    console.log(film)
     res.render("films/show", { film });
   } catch (error) {
     res.status(404).send(error.message);
@@ -63,7 +62,7 @@ exports.updateForm = async (req, res) => {
 
 exports.editOne = async (req, res) => {
   const { id } = req.params;
-  await Film.findByIdAndUpdate(id, req.body.film);
+  const film = await Film.findByIdAndUpdate(id,req.body.film);
   res.redirect(`/films/${id}`);
 };
 

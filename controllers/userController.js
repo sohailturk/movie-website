@@ -36,7 +36,6 @@ exports.signup = async (req, res) => {
     );
     res.redirect("/films");
     //redirecting user to home page
-    res.redirect("/films");
   } catch (error) {
     res.status(500).send(error);
   }
@@ -67,3 +66,9 @@ exports.login = async (req, res) => {
     res.status(500).send(error.message);
   }
 };
+
+
+exports.logout = (req,res)=>{
+  res.cookie("authToken"," ",{maxAge:2});
+  res.redirect("/login")
+}

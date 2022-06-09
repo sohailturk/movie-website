@@ -8,7 +8,6 @@ const isAuthed = (req,res,next)=>{
                 res.status(500).send(err.message)
             }
             else{
-                console.log(token);
                 next()
             }
         })

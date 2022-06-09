@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const filmController = require("../controllers/filmController");
 const multer = require("multer");
+const isAuthed = require("../middleware/auth")
+
 
 const storage = multer.diskStorage({
   destination: function (request, file, callback) {
@@ -22,28 +24,28 @@ router.get("/films", filmController.getAll);
 
 //adding a single film to database
 
-router.post("/films",upload.single("film[image]") ,filmController.addOne);
+router.post("/films",isAuthed,upload.single("film[image]") ,filmController.addOne);
 
 //show form for creating single film
-router.get("/films/new", filmController.newForm);
+router.get("/films/new",isAuthed, filmController.newForm);
 
 //showing single film
 
-router.get("/films/:id", filmController.getOne);
+router.get("/films/:id",isAuthed, filmController.getOne);
 
 //edit form for single film
 
-router.get("/films/:id/edit", filmController.updateForm);
+router.get("/films/:id/edit",isAuthed, filmController.updateForm);
 
 //editing single film
 
-router.patch("/films/:id", filmController.editOne);
+router.patch("/films/:id",isAuthed,filmController.editOne);
 
 //deleteing a single film
 
-router.delete("/films/:id", filmController.deleteOne);
+router.delete("/films/:id",isAuthed, filmController.deleteOne);
 
 //adding commetns
-router.post("/films/:id/comments", filmController.addComment);
+router.post("/films/:id/comments",isAuthed, filmController.addComment);
 
 module.exports = router;

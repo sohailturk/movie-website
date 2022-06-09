@@ -13,7 +13,14 @@ router.post("/signup",userController.signup)
 //login form
 router.get("/login",userController.loginView)
 
+
+//login route
 router.post("/login",userController.login)
 
+
+
+//logout 
+
+router.get("/logout",userController.logout)
 
 module.exports = router
