@@ -15,15 +15,15 @@
                         <div class="card mb-2">
                             <div class="card-body p-sm-2">
                                 <h2 class="text-center mb-4">Add new Film</h2>
-                                <form method="post" action="/films" novalidate class="validform">
+                                <form method="post" action="/films" novalidate class="validform" enctype="multipart/form-data">
                                     <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[name]" placeholder="name" required/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="text" name="film[description]" placeholder="description" required/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="date"  name="film[realeaseDate]" placeholder="realease-date" required/></div>
-                                    <div class="mb-1"><input id="name-2" class="form-control" type="number" min="1" max="5" name="film[rating]" placeholder="rating" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="number" min="50" step="20" name="film[ticketPrice]" placeholder="ticket-price" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[country]" placeholder="country" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[genere]" placeholder="genere" required/></div>
-                                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="film[photo]" placeholder="image" required/></div>
+                                    <div class="mb-1"><input id="description-2" class="form-control" type="text" name="film[description]" placeholder="description" required/></div>
+                                    <div class="mb-1"><input id="realease-date" class="form-control" type="date"  name="film[realeaseDate]" placeholder="realease-date" required/></div>
+                                    <div class="mb-1"><input id="rating" class="form-control" type="number" min="1" max="5" name="film[rating]" placeholder="rating" required/></div>
+                                    <div class="mb-1"><input id="ticket-price" class="form-control" type="number" min="50" step="20" name="film[ticketPrice]" placeholder="ticket-price" required/></div>
+                                    <div class="mb-1"><input id="country" class="form-control" type="text" name="film[country]" placeholder="country" required/></div>
+                                    <div class="mb-1"><input id="genere" class="form-control" type="text" name="film[genere]" placeholder="genere" required/></div>
+                                    <div class="mb-1"><input type="file" name="film[image]" class="form-control" id=""></div>
                                     <div><button class="btn btn-primary d-block w-100" type="submit">submit</button></div>
                                 </form>
                             </div>

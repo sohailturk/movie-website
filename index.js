@@ -5,10 +5,11 @@ const app = express();
 const mongooseConnect = require("./db/mongooseConnect");
 const cookieParser = require("cookie-parser");
 
+
 const expressLayouts = require("express-ejs-layouts");
 const methodOverRide = require("method-override");
 const isAuthed = require("./middleware/auth");
-
+const port = process.env.PORT || 3000;
 const filmRouter = require("./routes/filmRouter")
 const userRouter = require("./routes/userRouter")
 
@@ -24,7 +25,8 @@ app.use(methodOverRide("_method"))
 
 
 
-const port = process.env.PORT || 3000;
+
+
 
 //data base connection to mongodb
 mongooseConnect.connectDB();

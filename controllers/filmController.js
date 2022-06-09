@@ -1,5 +1,24 @@
 const Film = require("../models/Film");
 const Comment = require("../models/Comment")
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination:function (request,file,callback) {
+    callback(null,"./public/images")
+  },
+  //add extension back
+  filename:function (request,file,callback) {
+    callback(null,Date.now()+file.originalname)
+  }
+})
+
+const upload = multer({
+  storage:storage,
+ 
+})
+
+
+
 
 exports.getAll = async (req, res) => {
   try {
@@ -11,8 +30,9 @@ exports.getAll = async (req, res) => {
 };
 
 exports.addOne = async (req, res) => {
+  console.log(req.file)
   try {
-    const film = new Film(req.body.film);
+    const film = new Film({...req.body.film,image:req.file.filename});
     await film.save();
     res.redirect("/films");
   } catch (error) {
