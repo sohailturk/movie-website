@@ -25,9 +25,12 @@ router.get("/films/:id/edit",filmController.updateForm)
 
 router.patch("/films/:id",filmController.editOne)
 
-//deleteing route
+//deleteing a single film
 
 router.delete("/films/:id",filmController.deleteOne)
+
+//adding commetns
+router.post("/films/:id/comments",filmController.addComment)
 
 
 

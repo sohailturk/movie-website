@@ -43,10 +43,23 @@
                 <form action="/films/<%=film._id%>?_method=DELETE" method="post" class="">
                     <button class="btn btn-primary">delete</button>
                 </form>
+                <!--comment list -->
+                <h2 class="mb-4">comments</h2>
+                <div class="list-group mb-5">
+                    <% for(let comment of film.comments){ %>
+                        <div class="d-flex w-50 justify-content-between border border-2 border-primary py-3 mb-2 p-1">
+                            <p class="mb-1">
+                                <%= comment.body %>
+                            </p>
+                            <small class="border border-2 border-success p-1">posted by : <%=comment.name %></small>
+                        </div>
+                        <%}%>
+                </div>
                 <!-- comment form   -->
                 <form method="post" action="/films/<%=film._id%>/comments" novalidate class="validform w-50 mt-2">
                     <label for="input">user name</label>
-                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="comment[body]" placeholder="username" required /></div>
+                    <div class="mb-1"><input id="email-2" class="form-control" type="text" name="comment[name]"
+                            placeholder="username" required /></div>
                     <div class="mb-3"><textarea id="message-2" class="form-control" name="comment[body]" rows="6"
                             placeholder="Add comment" required></textarea></div>
                     <div><button class="btn btn-primary d-block w-10" type="submit">submit</button></div>

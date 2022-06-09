@@ -40,7 +40,7 @@ const filmSchmema = new Schema({
     comments:[
         {
             type:Schema.Types.ObjectId,
-            ref:"Film"
+            ref:"Comment"
         }
     ]
 })

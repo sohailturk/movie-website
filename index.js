@@ -11,7 +11,7 @@ const isAuthed = require("./middleware/auth");
 
 const filmRouter = require("./routes/filmRouter")
 const userRouter = require("./routes/userRouter")
-const commentRouter = require("./routes/commentRouter")
+
 
 app.set(path.join(__dirname,"views"))
 app.set("view engine","ejs")
@@ -38,7 +38,6 @@ app.get("/",isAuthed,(req,res)=>{
 })
 app.use("/",filmRouter)
 app.use("/",userRouter)
-app.use("/",commentRouter)
 
 
 
