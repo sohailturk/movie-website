@@ -1,6 +1,6 @@
-const res = require("express/lib/response");
 const mongoose = require("mongoose");
-const DbUrl = process.env.dbUrl
+const dbUrl = "mongodb+srv://sohailturk:asd3129760162@cluster0.xlued.mongodb.net/?retryWrites=true&w=majority"
+const DbUrl = dbUrl
 exports.connectDB = ()=>{
    mongoose.connect(DbUrl)
     .then(()=>{
@@ -10,6 +10,9 @@ exports.connectDB = ()=>{
         console.log(e)
     }) 
 }
+
+exports.secret = "QW4HDHM64MALLROADLEADSTOTHEromebutwearenotgoingthere"
+
 
 
     
